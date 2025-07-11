@@ -22,13 +22,13 @@ const AboutUs = () => {
 
         <div className="flex justify-center p-10 items-center gap-6" id="aboutUs">
             <img src="/A-propos-left-1.webp" className="w-4/12" alt="" />
-            <div className="flex flex-col items-stretch h-full w-3/12 gap-3">
+            <div className="flex flex-col items-stretch h-full w-4/12 gap-3">
                 <h2 className="text-3xl font-medium">A propos de nous</h2>
                 <div className="flex flex-col gap-5">
                     {aboutUsData.map((info, index) => (
                         <div>
                             <div className="flex items-center gap-2">
-                                <i className={`${info.fontClass} text-2xl` }></i>
+                                <i className={`${info.fontClass} text-4xl` }></i>
                                 <p className="text-2xl font-medium">{`${info.descriptionTitle}`}</p>
                             </div>
                             <p className="longAhhDescription">{`${info.longDescription}`}</p>
