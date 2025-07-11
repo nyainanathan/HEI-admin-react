@@ -44,3 +44,12 @@
 .longAhhDescription{
     font-size: 1.2rem;
 }
+#outcomes{
+    color: var(--color-one);
+}
+#outcomes-text{
+    width: 40%;
+}
+.outcomes-description{
+    font-size: 1.1rem;
+}
