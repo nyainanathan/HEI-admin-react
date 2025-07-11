@@ -35,3 +35,12 @@
     color: white;
     background-color: var(--color-one);
 }
+#aboutUs{
+    color: var(--color-one);
+}
+#aboutUs i{
+    color: var(--color-two);
+}
+.longAhhDescription{
+    font-size: 1.2rem;
+}
