@@ -4,6 +4,12 @@
     --color-one : #001948;
     --color-two: #DFA408;
     font-family: "quicksand";
+
+}
+::-webkit-scrollbar{
+    height: 0;
+    width: 0;
+    opacity: 0;
 }
 #navbar{
     background-color: var(--color-one);
@@ -16,4 +22,16 @@
 }
 #navbar-links{
     font-size: 1.2rem;
+}
+#firstbtn{
+    background-color: white;
+    color: var(--color-one);
+}
+#secondbtn{
+    color: white;
+    background-color: var(--color-two);
+}
+#thirdbtn{
+    color: white;
+    background-color: var(--color-one);
 }
