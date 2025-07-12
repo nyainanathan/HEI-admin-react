@@ -88,6 +88,13 @@ const StaffMember = () => {
         return visibleCards;
     }
 
+    const middleButton = (startIndex + 1) % totalCards;
+
+   const handleButtonsSwitch = index => {
+        const newStartIndex = index > 0 ? index - 1 : totalCards -1;
+        setStartIndex(newStartIndex);
+        resetTimer()
+   }
 
     return (
         <div className="w-full h-1/3 bg-blue-400 flex justify-center p-10">
@@ -115,6 +122,13 @@ const StaffMember = () => {
                     > 
                             &rsaquo;
                     </button>
+                </div>
+                <div className='flex gap-0.75'>
+                    {staffInto.map((staff, index) => (
+                        <button
+                        onClick={() => handleButtonsSwitch(index)}
+                        className={`rounded-full w-3 h-3 ${index == middleButton? 'bg-black':  'bg-white'} `} ></button>
+                    ))}
                 </div>
             </div>
         </div>
