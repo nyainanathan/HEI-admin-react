@@ -6,7 +6,11 @@
     font-family: "quicksand";
 
 }
-
+::-webkit-scrollbar{
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
 #navbar{
     background-color: var(--color-one);
 }

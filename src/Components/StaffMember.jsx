@@ -1,3 +1,5 @@
+import React, {useState, useEffect, useRef} from 'react';
+
 const StaffMember = () => {
     const staffInto = [
         {
@@ -44,26 +46,74 @@ const StaffMember = () => {
 
     const longDescription = "Notre équipe pédagogique se compose d’experts nationaux et internationaux de l’informatique, de la cybersécurité, de l’intelligence artificielle, dont un ingénieur chez Google. Ils sont passionnés par l’informatique et sont engagés vers l’excellence. Nous sommes conscients que cette équipe est la pierre angulaire de l’employabilité de nos étudiants, elle a été soigneusement sélectionnée."
 
+    const [startIndex, setStartIndex] = useState(0);
+    const totalCards = staffInto.length;
+    const cardsToShow = 3;
+    const intervalRef = useRef(null);
+
+    const slideNext = () => {
+        setStartIndex((prevIndex) => (prevIndex + 1) % totalCards)
+    }
+    
+    const resetTimer= () => {
+        if(intervalRef.current) {
+            clearInterval(intervalRef.current)
+        }
+        intervalRef.current = setInterval(slideNext, 5000)
+    }
+
+    useEffect(()=> {
+        resetTimer();
+        return () => clearInterval(intervalRef.current)
+    } , [startIndex]);
+
+    const handleNextClick = () => {
+        setStartIndex((prevIndex) => (prevIndex + 1) % totalCards);
+        resetTimer();
+    }
+
+    const handlePrevClick = () => {
+        setStartIndex((prevIndex) => {
+            const newIndex = prevIndex - 1;
+            return newIndex < 0 ? totalCards - 1 : newIndex;
+        })
+        resetTimer();
+    }
+
+    const getVisibleCards = () => {
+        let visibleCards = [];
+        for(let i =0 ; i<cardsToShow; i++){
+            visibleCards.push(staffInto[(startIndex + i) % totalCards]);
+        }
+        return visibleCards;
+    }
+
+
     return (
         <div className="w-full h-1/3 bg-blue-400 flex justify-center p-10">
             <div className="w-2/3 text-center flex flex-col items-center justify-center gap-3.5">
                 <h1 className="text-white text-5xl">L'equipe pedagogique</h1>
                 <p className="text-white">{longDescription}</p>
                 <div className="w-full flex gap-3.5">
-                    <button>
-                        Prev
+                    <button
+                    onClick={handlePrevClick} className='text-5xl text-white font-bold'
+                    >
+                        
+                            &lsaquo;
                     </button>
                     <div className="w-full overflow-x-scroll flex gap-8">
-                        {staffInto.map((staff, index) => (
-                            <div className="bg-white rounded-4xl staff-cards min-w-1/3 flex flex-col items-center justify-center gap-2 p-10">
+                        {getVisibleCards().map((staff, index) => (
+                            <div className="bg-white rounded-4xl staff-cards w-1/3 flex flex-col items-center justify-center gap-2 p-10">
                                 <img src={staff.imageUrl} className="rounded-full w-3/4" alt="" />
                                 <p className="staff-name font-semibold">{staff.name}</p>
                                 <p className="staff-name">{staff.description}</p>
                             </div>
                         ))}
                     </div>
-                    <button>
-                        Next
+                    <button
+                    onClick={handleNextClick} className='text-5xl text-white font-bold'
+                    > 
+                            &rsaquo;
                     </button>
                 </div>
             </div>
