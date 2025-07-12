@@ -13,6 +13,7 @@ function App() {
     <Navbar />
     <LandingSlideShow />
     <AboutUs />
+    <StaffMember />
     <Outcomes />
     </>
   )
