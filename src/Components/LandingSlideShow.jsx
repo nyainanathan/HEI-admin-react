@@ -3,15 +3,15 @@ import React, {useState, useEffect} from 'react';
 const LandingSlideShow = () => {
        const slidesData = [
         {
-            url: "/slide1.jpg",
+            url: "https://hei.school/wp-content/uploads/2024/09/hei-banner-2.webp",
             paragraph: "Une infrastructure de qualite et un programme pedagogique qui repond au besoin du marche pour l'employabilite de nos etudiants"
         },
         {
-            url: "/slide2.jpg",
+            url: "https://hei.school/wp-content/uploads/2024/09/hei-banner-3.webp",
             paragraph: '"L\'education est l\'arme la plus puissante pour changer le mode" Selon Nelson Mandela. "L\'education dans l\'informatique est une arme tres puissante pour lutter contre la pauvrete a Madgascar" Selon HEI. Notre mission'
         },
         {
-            url: "/slide3.jpg",
+            url: "https://hei.school/wp-content/uploads/2024/09/hei-banner-1.webp",
             paragraph: "Des entreprises partenaires et une equipe pedagogique et administrative qui travaille sans relache pour la montee en competence de nos etudiants"
         }
     ];
