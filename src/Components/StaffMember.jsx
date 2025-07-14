@@ -44,7 +44,7 @@ const StaffMember = () => {
         }
     ]
 
-    const longDescription = "Notre équipe pédagogique se compose d’experts nationaux et internationaux de l’informatique, de la cybersécurité, de l’intelligence artificielle, dont un ingénieur chez Google. Ils sont passionnés par l’informatique et sont engagés vers l’excellence. Nous sommes conscients que cette équipe est la pierre angulaire de l’employabilité de nos étudiants, elle a été soigneusement sélectionnée."
+    const longDescription = "Notre équipe pédagogique se compose d'experts nationaux et internationaux de l'informatique, de la cybersécurité, de l'intelligence artificielle, dont un ingénieur chez Google. Ils sont passionnés par l'informatique et sont engagés vers l'excellence. Nous sommes conscients que cette équipe est la pierre angulaire de l'employabilité de nos étudiants, elle a été soigneusement sélectionnée."
 
     const [startIndex, setStartIndex] = useState(0);
     const totalCards = staffInto.length;
@@ -97,37 +97,67 @@ const StaffMember = () => {
    }
 
     return (
-        <div className="w-full h-1/3 bg-blue-400 flex justify-center p-10">
-            <div className="w-2/3 text-center flex flex-col items-center justify-center gap-3.5">
-                <h1 className="text-white text-5xl">L'equipe pedagogique</h1>
-                <p className="text-white">{longDescription}</p>
-                <div className="w-full flex gap-3.5">
+        <div className="w-full min-h-screen sm:h-1/3 bg-blue-400 flex justify-center p-4 sm:p-6 md:p-8 lg:p-10">
+            <div className="w-full sm:w-5/6 md:w-4/5 lg:w-2/3 text-center flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-3.5">
+                <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold px-2">L'equipe pedagogique</h1>
+                <p className="text-white text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 lg:px-0 leading-relaxed">{longDescription}</p>
+                
+                
+                <div className="hidden sm:flex w-full gap-2 md:gap-4 lg:gap-3.5 items-center">
                     <button
-                    onClick={handlePrevClick} className='text-5xl text-white font-bold'
+                        onClick={handlePrevClick} 
+                        className='text-3xl md:text-4xl lg:text-5xl text-white font-bold hover:text-gray-200 transition-colors flex-shrink-0'
                     >
-                        
-                            &lsaquo;
+                        &lsaquo;
                     </button>
-                    <div className="w-full overflow-x-scroll flex gap-8">
+                    <div className="w-full h-96 flex gap-2 md:gap-4 lg:gap-8 justify-center">
                         {getVisibleCards().map((staff, index) => (
-                            <div className="bg-white rounded-4xl staff-cards w-1/3 flex flex-col items-center justify-center gap-2 p-10">
-                                <img src={staff.imageUrl} className="rounded-full w-3/4" alt="" />
-                                <p className="staff-name font-semibold">{staff.name}</p>
-                                <p className="staff-name">{staff.description}</p>
+                            <div key={index} className="bg-white rounded-lg md:rounded-xl lg:rounded-4xl flex-1 max-w-xs flex flex-col items-center justify-center gap-2 md:gap-3 lg:gap-2 p-4 md:p-6 lg:p-10 shadow-lg">
+                                <img src={staff.imageUrl} className=" rounded-full  h-48 sm:w-20 md:w-24 lg:w-3/4" alt={staff.name} />
+                                <p className="font-semibold text-xs sm:text-sm md:text-base lg:text-lg text-center">{staff.name}</p>
+                                <p className="text-xs sm:text-sm md:text-base text-center text-gray-600 leading-tight">{staff.description}</p>
                             </div>
                         ))}
                     </div>
                     <button
-                    onClick={handleNextClick} className='text-5xl text-white font-bold'
+                        onClick={handleNextClick} 
+                        className='text-3xl md:text-4xl lg:text-5xl text-white font-bold hover:text-gray-200 transition-colors flex-shrink-0'
                     > 
-                            &rsaquo;
+                        &rsaquo;
                     </button>
                 </div>
-                <div className='flex gap-0.75'>
+
+                
+                <div className="sm:hidden w-full flex gap-4 items-center justify-center">
+                    <button
+                        onClick={handlePrevClick} 
+                        className='text-4xl text-white font-bold hover:text-gray-200 transition-colors flex-shrink-0'
+                    >
+                        &lsaquo;
+                    </button>
+                    <div className="flex-1 max-w-sm">
+                        <div className="bg-white rounded-xl flex flex-col items-center justify-center gap-3 p-6 shadow-lg mx-2">
+                            <img src={staffInto[startIndex].imageUrl} className="rounded-full w-24 h-24 object-cover" alt={staffInto[startIndex].name} />
+                            <p className="font-semibold text-base text-center">{staffInto[startIndex].name}</p>
+                            <p className="text-sm text-center text-gray-600 leading-tight">{staffInto[startIndex].description}</p>
+                        </div>
+                    </div>
+                    <button
+                        onClick={handleNextClick} 
+                        className='text-4xl text-white font-bold hover:text-gray-200 transition-colors flex-shrink-0'
+                    > 
+                        &rsaquo;
+                    </button>
+                </div>
+
+                
+                <div className='flex gap-1 md:gap-2 lg:gap-0.75 mt-4'>
                     {staffInto.map((staff, index) => (
                         <button
-                        onClick={() => handleButtonsSwitch(index)}
-                        className={`rounded-full w-3 h-3 ${index == middleButton? 'bg-black':  'bg-white'} `} ></button>
+                            key={index}
+                            onClick={() => handleButtonsSwitch(index)}
+                            className={`rounded-full w-2 h-2 md:w-3 md:h-3 transition-colors ${index === middleButton ? 'bg-black' : 'bg-white hover:bg-gray-200'}`}
+                        />
                     ))}
                 </div>
             </div>

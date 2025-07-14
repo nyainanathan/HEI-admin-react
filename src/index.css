@@ -3,7 +3,7 @@
 *{
     --color-one : #001948;
     --color-two: #DFA408;
-    font-family: "quicksand";
+    font-family: Arial, Helvetica, sans-serif;
 
 }
 ::-webkit-scrollbar{
@@ -54,5 +54,11 @@
     font-size: 1.1rem;
 }
 .staff-name{
+    color: var(--color-one);
+}
+.turnThisBlue{
+    background-color: var(--color-one);
+}
+.turnThisTextBlue{
     color: var(--color-one);
 }
