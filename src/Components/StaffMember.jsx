@@ -97,7 +97,7 @@ const StaffMember = () => {
    }
 
     return (
-        <div className="w-full min-h-screen sm:h-1/3 bg-blue-400 flex justify-center p-4 sm:p-6 md:p-8 lg:p-10">
+        <div className="staff w-full min-h-screen sm:h-1/3 bg-[#6C8CD5] flex justify-center p-4 sm:p-6 md:p-8 lg:p-10">
             <div className="w-full sm:w-5/6 md:w-4/5 lg:w-2/3 text-center flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-3.5">
                 <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold px-2">L'equipe pedagogique</h1>
                 <p className="text-white text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 lg:px-0 leading-relaxed">{longDescription}</p>
